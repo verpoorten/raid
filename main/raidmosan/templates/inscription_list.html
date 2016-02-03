@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    Liste des inscriptions
+    {%for inscription in inscriptions %}
+    {{inscription.nom_equipe}}
+    {%endfor%}
+  </div>
+</div>
+
+{% endblock %}

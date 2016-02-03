@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="jumbotron">
+  <h1> Ouverture des inscriptions le 01 mai 2016</h1>
+
+
+</div>
+<div class="row">
+  <div class="col-md-12">
+    Pour vous inscrire, vous devez compléter les informations ci-dessous et accepter le règlement<br><br>
+   Vous trouverez les modalités pour le droit de participation dans le <a href="{% url 'reglement' %}">règlement</a><br><br>
+   <b>Les inscriptions seront officielles dès réception du paiement</b>
+  </div>
+</div>
+<form method="post" action="{% url 'add_inscription' %}">
+  <div class="form-group">
+    <label for="nom_equipe">Nom de l'équipe</label>
+    <input type="nom_equipe" class="form-control" id="nom_equipe" placeholder="Nom de l'équipe">
+  </div>
+  <div class="form-group">
+    <label for="categorie">Categorie</label>
+    <select class="form-control" id="categorie" napme="categorie">
+      <option>-</option>
+      <option value="DAMES">Dames</option>
+      <option value="HOMMES">Hommes</option>
+      <option value="MIXTE">Mixte</option>
+
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="nom_participant_1">Nom du premier participant</label>
+    <input type="nom_participant_1" class="form-control" id="nom_participant_1" placeholder="Nom premier participant">
+  </div>
+  <div class="form-group">
+    <label for="nom_participant_2">Nom du deuxième participant</label>
+    <input type="nom_participant_2" class="form-control" id="nom_participant_2" placeholder="Nom deuxième participant">
+  </div>
+  <div class="form-group">
+    <label for="responsable_email">Email du responsable de l'équipe</label>
+    <input type="responsable_email" class="form-control" id="responsable_email" placeholder="Email du responsable de l'équipe">
+  </div>
+  <div class="form-group">
+    <label for="responsable_telephone">Téléphone du responsable de l'équipe</label>
+    <input type="responsable_telephone" class="form-control" id="responsable_telephone" placeholder="Téléphone du responsable de l'équipe">
+  </div>
+  <div class="form-group">
+    <label for="taille_t_shirt">Taille t-shirt</label>
+    <select class="form-control" id="taille_t_shirt" napme="taille_t_shirt">
+      <option>-</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="reglement_ok" nom="reglement_ok"> Règlement accepté
+    </label>
+  </div>
+  <button type="button" class="btn btn-primary">Ok</button>
+</form>
+<div class="row">
+  <div class="col-md-12"><br><br>
+  </div>
+</div>
+{% endblock %}

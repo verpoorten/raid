@@ -33,22 +33,21 @@
             <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo_raidmosan.png' %}" style="margin-top: -10px;"></a>
           </div>
 
+
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCUEIL <span class="caret"></span></a>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INSCRIPTION <span class="caret"></span></a>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REGLEMENT <span class="caret"></span></a>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTACTEZ-NOUS <span class="caret"></span></a>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CLASSEMENT et PHOTOS <span class="caret"></span></a>
-
-
-
-
-
-
-
+                <li><a href="{% url 'home' %}">ACCUEIL </a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INSCRIPTION <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'inscription' %}">Inscription</a></li>
+                    <li><a href="{% url 'inscriptions' %}">Liste des inscrits</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url 'reglement' %}" >REGLEMENT</a></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTACTEZ-NOUS </a></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CLASSEMENT et PHOTOS <span class="caret"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/admin" target="_blank"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Admin</a></li>
@@ -64,7 +63,7 @@
       <div class="container">
         <br/>
           <ol class="breadcrumb">
-            
+
             {% block breadcrumb %}
             {% endblock %}
 
