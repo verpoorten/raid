@@ -39,15 +39,16 @@
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'home' %}">ACCUEIL </a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INSCRIPTION <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INSCRIPTION</a>
                   <ul class="dropdown-menu">
                     <li><a href="{% url 'inscription' %}">Inscription</a></li>
-                    <li><a href="{% url 'inscriptions' %}">Liste des inscrits</a></li>
+                    <li><a href="{% url 'test' %}">Liste des inscrits</a></li>
                   </ul>
                 </li>
                 <li><a href="{% url 'reglement' %}" >REGLEMENT</a></li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTACTEZ-NOUS </a></li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CLASSEMENT et PHOTOS <span class="caret"></span></a></li>
+                <li><a href="{% url 'contact' %}" >CONTACTEZ-NOUS</a></li>
+                <li><a href="{% url 'classement' %}" >CLASSEMENT</a> </li>
+                <li><a href="{% url 'photos' %}" >PHOTOS</a> </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/admin" target="_blank"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Admin</a></li>
@@ -63,7 +64,6 @@
       <div class="container">
         <br/>
           <ol class="breadcrumb">
-
             {% block breadcrumb %}
             {% endblock %}
 

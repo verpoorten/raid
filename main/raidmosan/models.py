@@ -21,7 +21,8 @@ class Inscription(models.Model):
     responsable_email     = models.EmailField( blank = False, null = False)
     responsable_telephone = models.CharField(max_length = 30, blank = False, null = False)
     challenge_raid_trophy = models.BooleanField(default = False)
-    taille_t_shirt        = models.CharField(max_length = 6, choices = TAILLE, blank = False, null = False)
+    taille_t_shirt_1      = models.CharField(max_length = 6, choices = TAILLE, blank = False, null = False)
+    taille_t_shirt_2      = models.CharField(max_length = 6, choices = TAILLE,blank = False, null = False)
     reglement_ok          = models.BooleanField(default = False)
     inscription_validee   = models.BooleanField(default = False)
 
