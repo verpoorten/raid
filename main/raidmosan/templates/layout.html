@@ -1,10 +1,9 @@
 {% load staticfiles %}
 <!doctype html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="utf-8">
         <title>Raid mosan</title>
-
         <meta name="apple-mobile-web-app-capable" content="yes" />
 		    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -13,10 +12,11 @@
         <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
         <link rel="stylesheet" href="{% static "css/bootstrap-theme.min.css" %}">
         <link rel="stylesheet" href="{% static "css/custom.css" %}">
+        <link rel="stylesheet" href="{% static "css/css2.css" %}">
         {% block style %}
         {% endblock %}
         <style>
-          body { font-family: 'Armata', sans-serif; }
+          body { font-family: 'Armata', sans-serif;background-color: #fafae6}
         </style>
     </head>
     <body>
@@ -49,27 +49,18 @@
                 <li><a href="{% url 'photos' %}" >PHOTOS</a> </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/admin" target="_blank"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Admin</a></li>
-            </ul>
+                            <li><a href="/admin" target="_blank"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Admin</a></li>
+                        </ul>
           </div>
         </div>
       </nav>
 
       <div class="container">
         <br/>
-          <ol class="breadcrumb">
-            {% block breadcrumb %}
-            {% endblock %}
-
         {% block content %}
         {% endblock %}
       </div>
 
-      <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container">
-
-        </div>
-      </nav>
 
       <script src="{% static "js/jquery-2.1.4.min.js" %}"></script>
       <script src="{% static "js/bootstrap.min.js" %}"></script>

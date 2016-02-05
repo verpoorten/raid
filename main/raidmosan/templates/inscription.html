@@ -13,6 +13,8 @@
    <b>Les inscriptions seront officielles dès réception du paiement</b>
   </div>
 </div>
+<div class="panel panel-default">
+<div class="panel-body">
 <form id="inscription_form" method="post" action="{% url 'add_inscription' %}">
   {% csrf_token %}
   <div class="row">
@@ -90,7 +92,8 @@
   </div>
   <input type="submit" value="OK">
 </form>
-
+</div>
+</div>
 <div class="row">
   <div class="col-md-12"><br><br>
 
