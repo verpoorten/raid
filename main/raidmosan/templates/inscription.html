@@ -1,94 +1,99 @@
 {% extends "layout.html" %}
 {% load staticfiles %}
+{% load list %}
 {% block content %}
 
 <div class="jumbotron">
   <h1> Ouverture des inscriptions le 01 mai 2016</h1>
-
-
 </div>
 <div class="row">
   <div class="col-md-12">
     Pour vous inscrire, vous devez compléter les informations ci-dessous et accepter le règlement<br><br>
-   Vous trouverez les modalités pour le droit de participation dans le <a href="{% url 'reglement' %}">règlement</a><br><br>
+   Vous trouverez les modalités pour le droit de participation dans le <a href="{% url 'reglement' %}" target="_blank">règlement</a><br><br>
    <b>Les inscriptions seront officielles dès réception du paiement</b>
   </div>
 </div>
 <form id="inscription_form" method="post" action="{% url 'add_inscription' %}">
   {% csrf_token %}
-  <div class="form-group">
-    <label for="nom_equipe">Nom de l'équipe</label>
-    <input type="nom_equipe" class="form-control" id="nom_equipe" name="nom_equipe" placeholder="Nom de l'équipe">
+  <div class="row">
+  <div class="col-md-6">
+
+    <label for="nom_equipe">Nom de l'équipe</label>&nbsp;&nbsp;{%if messages|get_item:'nom_equipe'%}<label class="alert alert-danger" style="padding:3px;font-size:smaller" role="alert">&nbsp;&nbsp;{{messages|get_itemlabel:'nom_equipe'}}&nbsp;&nbsp;</label>{%endif%}
+    <input type="nom_equipe" class="form-control" id="nom_equipe" name="nom_equipe" placeholder="Nom de l'équipe"
+           value="{{inscription.nom_equipe}}" required = "true">
   </div>
-  <div class="form-group">
-    <label for="categorie">Categorie</label>
-    <select class="form-control" id="categorie" name="categorie">
+    <div class="col-md-6">
+    <label for="categorie">Categorie</label>&nbsp;&nbsp;{%if messages|get_item:'categorie'%}<label class="alert alert-danger" style="padding:3px;font-size:smaller" role="alert">&nbsp;&nbsp;{{messages|get_itemlabel:'categorie'}}&nbsp;&nbsp;</label>{%endif%}
+    <select class="form-control" id="categorie" name="categorie" value="{{inscription.categorie}}" required = "true">
       <option>-</option>
-      <option value="DAMES">Dames</option>
-      <option value="HOMMES">Hommes</option>
-      <option value="MIXTE">Mixte</option>
+      <option value="DAMES" {% if inscription.categorie == "DAMES" %}selected{% endif %}>Dames</option>
+      <option value="HOMMES" {% if inscription.categorie == "HOMMES" %}selected{% endif %}>Hommes</option>
+      <option value="MIXTE" {% if inscription.categorie == "MIXTE" %}selected{% endif %}>Mixte</option>
     </select>
+  </div>
   </div>
   <div class="row">
   <div class="col-md-6">
-    <label for="nom_participant_1">Nom du premier participant</label>
-    <input type="nom_participant_1" class="form-control" id="nom_participant_1" name="nom_participant_1" placeholder="Nom premier participant">
+    <label for="nom_participant_1">Nom du premier participant</label>&nbsp;&nbsp;{%if messages|get_item:'nom_participant_1'%}<label class="alert alert-danger" style="padding:3px;font-size:smaller" role="alert">&nbsp;&nbsp;{{messages|get_itemlabel:'nom_participant_1'}}&nbsp;&nbsp;</label>{%endif%}
+    <input type="nom_participant_1" class="form-control" id="nom_participant_1" name="nom_participant_1" placeholder="Nom premier participant" value="{{inscription.nom_participant_1}}" required = "true">
   </div>
     <div class="col-md-6">
-      <label for="taille_t_shirt_1">Taille t-shirt</label>
-      <select class="form-control" id="taille_t_shirt_1" name="taille_t_shirt_1">
+      <label for="taille_t_shirt_1">Taille t-shirt</label>&nbsp;&nbsp;{%if messages|get_item:'taille_t_shirt_1'%}<label class="alert alert-danger" style="padding:3px;font-size:smaller" role="alert">&nbsp;&nbsp;{{messages|get_itemlabel:'taille_t_shirt_1'}}&nbsp;&nbsp;</label>{%endif%}
+      <select class="form-control" id="taille_t_shirt_1" name="taille_t_shirt_1" value="{{inscription.taille_t_shirt_1}}">
         <option>-</option>
-        <option value="S">S</option>
-        <option value="M">M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
+        <option value="S" {% if inscription.taille_t_shirt_1 == "S" %}selected{% endif %}>S</option>
+        <option value="M" {%if inscription.taille_t_shirt_1 == "M" %}selected{% endif %}>M</option>
+        <option value="L" {%if inscription.taille_t_shirt_1 == "L" %}selected{% endif %}>L</option>
+        <option value="XL" {%if inscription.taille_t_shirt_1 == "XL" %}selected{% endif %}>XL</option>
       </select>
     </div>
   </div>
   <div class="row">
   <div class="col-md-6">
-    <label for="nom_participant_2">Nom du deuxième participant</label>
-    <input type="nom_participant_2" class="form-control" id="nom_participant_2" name="nom_participant_2" placeholder="Nom deuxième participant">
+    <label for="nom_participant_2">Nom du deuxième participant</label>&nbsp;&nbsp;{%if messages|get_item:'nom_participant_2'%}<label class="alert alert-danger" style="padding:3px;font-size:smaller" role="alert">&nbsp;&nbsp;{{messages|get_itemlabel:'nom_participant_2'}}&nbsp;&nbsp;</label>{%endif%}
+    <input type="nom_participant_2" class="form-control" id="nom_participant_2" name="nom_participant_2" placeholder="Nom deuxième participant" value="{{inscription.nom_participant_2}}" required = "true">
   </div>
   <div class="col-md-6">
-    <label for="taille_t_shirt_2">Taille t-shirt</label>
-    <select class="form-control" id="taille_t_shirt_2" name="taille_t_shirt_2">
+    <label for="taille_t_shirt_2">Taille t-shirt</label>&nbsp;&nbsp;{%if messages|get_item:'taille_t_shirt_2'%}<label class="alert alert-danger" style="padding:3px;font-size:smaller" role="alert">&nbsp;&nbsp;{{messages|get_itemlabel:'taille_t_shirt_2'}}&nbsp;&nbsp;</label>{%endif%}
+    <select class="form-control" id="taille_t_shirt_2" name="taille_t_shirt_2" value="{{inscription.taille_t_shirt_2}}" required = "true">
       <option>-</option>
-      <option value="S">S</option>
-      <option value="M">M</option>
-      <option value="L">L</option>
-      <option value="XL">XL</option>
+      <option value="S" {%if inscription.taille_t_shirt_2 == "S" %}selected{% endif %}>S</option>
+      <option value="M" {%if inscription.taille_t_shirt_2 == "M" %}selected{% endif %}>M</option>
+      <option value="L" {%if inscription.taille_t_shirt_2 == "L" %}selected{% endif %}>L</option>
+      <option value="XL" {%if inscription.taille_t_shirt_2 == "XL" %}selected{% endif %}>XL</option>
     </select>
   </div>
 </div>
 <div class="row">
 <div class="col-md-6">
-    <label for="responsable_email">Email du responsable de l'équipe</label>
-    <input type="responsable_email" class="form-control" id="responsable_email" name="responsable_email" placeholder="Email du responsable de l'équipe">
+    <label for="responsable_email">Email du responsable de l'équipe</label>&nbsp;&nbsp;{%if messages|get_item:'responsable_email'%}<label class="alert alert-danger" style="padding:3px;font-size:smaller" role="alert">&nbsp;&nbsp;{{messages|get_itemlabel:'responsable_email'}}&nbsp;&nbsp;</label>{%endif%}
+    <input type="responsable_email" class="form-control" id="responsable_email" name="responsable_email"
+           placeholder="Email du responsable de l'équipe" value="{{inscription.responsable_email}}" required = "true">
   </div>
   <div class="col-md-6">
     <label for="responsable_telephone">Téléphone du responsable de l'équipe</label>
-    <input type="responsable_telephone" class="form-control" id="responsable_telephone" name="responsable_telephone" placeholder="Téléphone du responsable de l'équipe">
+    <input type="responsable_telephone" class="form-control" id="responsable_telephone" name="responsable_telephone"
+           placeholder="Téléphone du responsable de l'équipe" value="{{inscription.responsable_telephone}}" required = "true">
   </div>
-
-  </div>
-  <div class="form-group">
 
   </div>
   <div class="checkbox">
     <label>
-      <input type="checkbox" id="reglement_ok" name="reglement_ok"> Règlement accepté
+      <input type="checkbox" id="reglement_ok" name="reglement_ok" {% if inscription.reglement_ok %}checked{% endif %}> Règlement accepté
     </label>
+    {%if messages|get_item:'reglement_ok'%}<label class="alert alert-danger" style="padding:3px;font-size:smaller" role="alert">&nbsp;&nbsp;{{messages|get_itemlabel:'reglement_ok'}}&nbsp;&nbsp;</label>{%endif%}
   </div>
   <div class="checkbox">
     <label>
-      <input type="checkbox" id="challenge_raid_trophy" name="challenge_raid_trophy"> Challenge Raid Trophy
+      <input type="checkbox" name="challenge_raid_trophy" {% if inscription.challenge_raid_trophy %}checked{% endif %}> Challenge Raid Trophy
     </label>
   </div>
   <input type="submit" value="OK">
 </form>
+
 <div class="row">
   <div class="col-md-12"><br><br>
+
   </div>
 </div>
 {% endblock %}

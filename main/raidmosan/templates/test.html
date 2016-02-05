@@ -1,28 +1,32 @@
 {% extends "layout.html" %}
 {% load staticfiles %}
 {% block content %}
+<div class="panel panel-default">
+  <div class="panel-heading"><h4>Liste des inscriptions</h4></div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12"><br><br>
+        <table class="table table-striped table-hover">
+          <thead>
+             <th>Nom équipe</th>
+             <th>Nom participant 1</th>
+             <th>Nom participant 2</th>
+             <th>Catégorie</th>
+             <th>Inscription en ordre</th>
+           </thead>
+        {%for i in inscriptions%}
+          <tr style="color:{%if not i.inscription_validee%}red{%endif%}">
+            <td>{{i.nom_equipe}}</td>
+            <td>{{i.nom_participant_1}}</td>
+            <td>{{i.nom_participant_2}}</td>
+            <td>{{i.categorie}}</td>
+            <td>{%if i.inscription_validee%}OK{%else%}KO{%endif%}</td>
+          </tr>
 
-<div class="row">
-  <div class="col-md-12"><br><br>
-    <table class="table table-striped table-hover">
-      <thead>
-         <th>Nom équipe</th>
-         <th>Nom participant 1</th>
-         <th>Nom participant 2</th>
-         <th>Catégorie</th>
-         <th>Inscription en ordre</th>
-       </thead>
-    {%for i in inscriptions%}
-      <tr style="color:{%if not i.inscription_validee%}red{%endif%}">
-        <td>{{i.nom_equipe}}</td>
-        <td>{{i.nom_participant_1}}</td>
-        <td>{{i.nom_participant_2}}</td>
-        <td>{{i.categorie}}</td>
-        <td>{%if i.inscription_validee%}OK{%else%}KO{%endif%}</td>
-      </tr>
-
-    {%endfor%}
-    </table>
-  </div>
+        {%endfor%}
+        </table>
+      </div>
+    </div>
+</div>
 </div>
 {% endblock %}

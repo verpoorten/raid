@@ -17,5 +17,7 @@ urlpatterns = [
     url(r'^inscription2/list/$', views.test,     name='inscriptions2'),
     url(r'^add_inscription/$',  views.inscription_add,  name='add_inscription'),
     url(r'^test/$',  views.test,  name='test'),
+    url(r'^xls_inscriptions/$',  views.xls_inscriptions,  name='xls_inscriptions'),
+
 
 ]

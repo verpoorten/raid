@@ -32,8 +32,6 @@
             </button>
             <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo_raidmosan.png' %}" style="margin-top: -10px;"></a>
           </div>
-
-
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -51,11 +49,7 @@
                 <li><a href="{% url 'photos' %}" >PHOTOS</a> </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/admin" target="_blank"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Admin</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ request.user.first_name }} <span class="caret"></span></a>
-                </li>
-
+                <li><a href="/admin" target="_blank"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Admin</a></li>
             </ul>
           </div>
         </div>
